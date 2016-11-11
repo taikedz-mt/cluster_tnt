@@ -41,6 +41,7 @@ end
 
 minetest.register_node("cluster_tnt:tnt",{
 	tiles = {"default_dirt.png^[colorize:red:150"},
+	description = "TNT Cluster Bomb",
 	after_place_node = function(pos,player)
 		local pname = player:get_player_name()
 
@@ -51,4 +52,13 @@ minetest.register_node("cluster_tnt:tnt",{
 		clusterize(pos)
 
 	end
+})
+
+minetest.register_craft({
+	output = "cluster_tnt:tnt",
+	recipe = {
+		{"default:mese","default:coal_lump","default:mese"},
+		{"default:diamond","tnt:tnt","default:diamond"},
+		{"default:mese","default:coal_lump","default:mese"},
+	}
 })
