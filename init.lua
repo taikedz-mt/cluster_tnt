@@ -60,11 +60,28 @@ minetest.register_node("cluster_tnt:tnt",{
 	end
 })
 
+-- Make burning TNT diggable
+
+local btnt = minetest.registered_nodes["tnt:tnt_burning"]
+local tntblock = "tnt:tnt_burning"
+
+if btnt.groups == nil then
+	btnt.groups = {}
+end
+
+btnt.groups.snappy = 1
+btnt.drop = nil
+btnt.description = "Ignited TNT"
+
+minetest.register_node(":tnt:tnt_burning",btnt)
+
+-- Make craft depend on burning TNT :)
+
 minetest.register_craft({
 	output = "cluster_tnt:tnt",
 	recipe = {
-		{"tnt:tnt","default:coalblock","tnt:tnt"},
+		{tntblock,"default:coalblock",tntblock},
 		{"default:coalblock","default:steelblock","default:coalblock"},
-		{"tnt:tnt","default:coalblock","tnt:tnt"},
+		{tntblock,"default:coalblock",tntblock},
 	}
 })
