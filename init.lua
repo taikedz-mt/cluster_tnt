@@ -46,7 +46,7 @@ local clusterize = function(pos)
 end
 
 minetest.register_node("cluster_tnt:tnt",{
-	tiles = {"tnt_side.png^[colorize:blue:150"},
+	tiles = {"tnt_side.png^[colorize:yellow:100"},
 	description = "TNT Cluster Bomb",
 	after_place_node = function(pos,player)
 		local pname = player:get_player_name()
