@@ -17,6 +17,12 @@ local getarea = function (pos,radius)
 		  }
 		local tnode = minetest.get_node(tpos).name
 		if tnode == "air"
+			or tnode == "default:water_source"
+			or tnode == "default:river_water_source"
+			or tnode == "default:lava_source"
+			or tnode == "default:water_flowing"
+			or tnode == "default:river_water_flowing"
+			or tnode == "default:lava_flowing"
 		  then
 			local amp = vector.distance(pos,tpos)
 			if (1-amp/radius)*math.random(1,radius) > amp then
@@ -40,7 +46,7 @@ local clusterize = function(pos)
 end
 
 minetest.register_node("cluster_tnt:tnt",{
-	tiles = {"default_dirt.png^[colorize:red:150"},
+	tiles = {"tnt_side.png^[colorize:blue:150"},
 	description = "TNT Cluster Bomb",
 	after_place_node = function(pos,player)
 		local pname = player:get_player_name()
