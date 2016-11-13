@@ -57,8 +57,8 @@ minetest.register_node("cluster_tnt:tnt",{
 minetest.register_craft({
 	output = "cluster_tnt:tnt",
 	recipe = {
-		{"default:mese_crystal","default:coalblock","default:mese_crystal"},
-		{"default:coalblock","tnt:tnt","default:coalblock"},
-		{"default:mese_crystal","default:coalblock","default:mese_crystal"},
+		{"tnt:tnt","default:coalblock","tnt:tnt"},
+		{"default:coalblock","default:steelblock","default:coalblock"},
+		{"tnt:tnt","default:coalblock","tnt:tnt"},
 	}
 })
